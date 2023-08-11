@@ -1,0 +1,45 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Your CV</title>
+</head>
+<body>
+    <header>
+        <img src="{% static 'img/Macarious Gadelkarim.png' %}" alt="Your Photo">
+        <h1>Your Name</h1>
+        <p>Web Developer</p>
+    </header>
+    
+    <section class="info">
+        <h2>Contact Information</h2>
+        <ul>
+            <li>Email: your.email@example.com</li>
+            <li>Phone: (123) 456-7890</li>
+            <li>Website: www.yourwebsite.com</li>
+        </ul>
+    </section>
+    
+    <section class="education">
+        <h2>Education</h2>
+        <p><strong>University Name</strong></p>
+        <p>Bachelor of Science in Computer Science</p>
+        <p>Graduated: May 20XX</p>
+    </section>
+    
+    <section class="experience">
+        <h2>Work Experience</h2>
+        <p><strong>Web Developer</strong></p>
+        <p>XYZ Tech Solutions</p>
+        <p>June 20XX - Present</p>
+        <ul>
+            <li>Developed and maintained company website using HTML, CSS, and JavaScript.</li>
+            <li>Collaborated with cross-functional teams to implement new features and improvements.</li>
+            <li>Performed website optimization for better performance and user experience.</li>
+        </ul>
+    </section>
+</body>
+</html>
