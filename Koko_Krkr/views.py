@@ -21,6 +21,29 @@ def First_view(request):
 class CV_view(TemplateView):    
     template_name = 'cv.html'
 
+class BookVieww(viewsets.ViewSet):
+     def list(self, request):
+        friendo = Friends.objects.all()
+        serializersfriend = friendserializer(friendo,many = True)
+        return Response({"Message":serializersfriend.data},status.HTTP_200_OK)
+     def create(self, request):
+        serializersfriend = friendserializer(data=request.data)
+        serializersfriend.is_valid(raise_exception=True)
+        serializersfriend.save()
+        return Response({"Message":serializersfriend.data},status.HTTP_201_CREATED)
+     def update(self, request,pk = None):
+        return Response({"Message":'update a book'},status.HTTP_200_OK)
+     def retrieve(self, request,pk = None):
+        friendo = Friends.objects.get(pk = pk)
+        serializersfriend = friendserializer(friendo)
+        return Response({"Message":serializersfriend.data},status.HTTP_200_OK)
+     def partial_retrieve(self, request,pk = None):
+        return Response({"Message":'partially '},status.HTTP_200_OK)
+     def destroy(self, request,pk = None):
+        friendo = Friends.objects.get(pk = pk)
+        friendo.delete()
+        return Response({"Message":f'Friend with id {pk} is destroy'},status.HTTP_200_OK)
+
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
