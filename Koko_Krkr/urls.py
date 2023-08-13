@@ -3,7 +3,7 @@ from Koko_Krkr.views import *
 from Koko_Krkr import views
 from rest_framework import routers
 
-handler404 = 'Koko_Krkr.views.custom_404'
+handler404 = 'Project8_12_2023.views.custom_404'
 
 
 urlpatterns =[
