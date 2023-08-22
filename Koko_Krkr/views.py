@@ -5,6 +5,7 @@ from .models import *
 from .serializer import *
 
 from django.views.generic.base import TemplateView 
+from django.core.mail import send_mail
 
 from rest_framework.decorators import api_view,permission_classes,throttle_classes
 from rest_framework.throttling import AnonRateThrottle
@@ -25,6 +26,10 @@ class BookVieww(viewsets.ViewSet):
      def list(self, request):
         friendo = Friends.objects.all()
         serializersfriend = friendserializer(friendo,many = True)
+        subject = 'fuck off'
+        message = 'this is the test for live email system'
+        mmail = 'm.labibebidallah@nu.edu.eg'
+        send_mail(subject,message,'maccariousgadelkarim5.1@gmail.com',[mmail],fail_silently=False)
         return Response({"Message":serializersfriend.data},status.HTTP_200_OK)
      def create(self, request):
         serializersfriend = friendserializer(data=request.data)
