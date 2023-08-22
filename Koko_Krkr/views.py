@@ -28,7 +28,7 @@ class BookVieww(viewsets.ViewSet):
         serializersfriend = friendserializer(friendo,many = True)
         subject = 'fuck off'
         message = 'this is the test for live email system'
-        mmail = 'm.labibebidallah@nu.edu.eg'
+        mmail = 'makariousgadelkarim@gmail.com'
         send_mail(subject,message,'maccariousgadelkarim5.1@gmail.com',[mmail],fail_silently=False)
         return Response({"Message":serializersfriend.data},status.HTTP_200_OK)
      def create(self, request):
