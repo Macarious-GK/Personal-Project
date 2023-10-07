@@ -14,9 +14,18 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets, generics
 from rest_framework.status import *
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+import requests
+import time
 
 
 def First_view(request):
+    url = 'https://smart-ukff.onrender.com/'
+    flag = 0 
+    if request.method == 'GET':
+        while flag ==0:
+            response = requests.get(url)
+            time.sleep(30)
+            flag =1
     return HttpResponse('What everybody knows')
 
 
@@ -29,7 +38,7 @@ class BookVieww(viewsets.ViewSet):
         serializersfriend = friendserializer(friendo,many = True)
         subject = 'fuck off'
         message = f'this is the test for live email system in {datetime.now()}'
-        mmail = 'makariousgadelkarim@gmail.com'
+        mmail = 'd'
         send_mail(subject,message,'maccariousgadelkarim5.1@gmail.com',[mmail],fail_silently=False)
         return Response({"Message":serializersfriend.data},status.HTTP_200_OK)
      def create(self, request):
