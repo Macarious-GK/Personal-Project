@@ -7,8 +7,8 @@ from rest_framework import routers
 
 
 urlpatterns =[
-    path('',views.First_view, name='First-view'),
-    path('cv/',CV_view.as_view(), name = 'cv-view'),
+    path('cd/',views.First_view, name='First-view'),
+    path('',CV_view.as_view(), name = 'cv-view'),
     path('friend/',views.BookVieww.as_view(
         {
             'get':'list',
